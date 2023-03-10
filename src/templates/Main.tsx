@@ -38,22 +38,6 @@ const Main = (props: IMainProps) => (
                 About
               </Link>
             </li>
-            <li className="mr-6">
-              <a
-                className="border-none text-gray-700 hover:text-gray-900"
-                href="https://github.com/joshuaonwezen/nextjs-demo-app"
-              >
-                GitHub
-              </a>
-            </li>
-            <li className="mr-6">
-              <Link
-                href="/blog/"
-                className="border-none text-gray-700 hover:text-gray-900"
-              >
-                Blog
-              </Link>
-            </li>
           </ul>
         </nav>
       </header>
@@ -61,8 +45,8 @@ const Main = (props: IMainProps) => (
       <main className="content py-5 text-xl">{props.children}</main>
 
       <footer className="border-t border-gray-300 py-8 text-center text-sm">
-        © Copyright {new Date().getFullYear()} {AppConfig.title}. Made with{' '}
-        <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>.
+        © Copyright {new Date().getFullYear()} {AppConfig.title}. Made by{' '}
+        <a href="https://github.com/joshuaonwezen/">Joshua Onwezen</a>.
         {/*
          * PLEASE READ THIS SECTION
          * I'm an indie maker with limited resources and funds, I'll really appreciate if you could have a link to my website.

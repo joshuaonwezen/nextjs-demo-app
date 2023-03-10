@@ -22,6 +22,8 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@optimizely/optimizely-sdk": "^4.9.2",
+    "@optimizely/react-sdk": "^2.9.1",
     "next": "^13.2.1",
     "next-seo": "^5.15.0",
     "next-sitemap": "^3.1.52",

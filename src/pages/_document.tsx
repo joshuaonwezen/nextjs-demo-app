@@ -1,4 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 import { AppConfig } from '@/utils/AppConfig';
 
@@ -8,7 +9,12 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang={AppConfig.locale}>
-        <Head />
+        <Head>
+          <Script
+            src="https://cdn.optimizely.com/js/23338860169.js"
+            strategy="beforeInteractive"
+          />
+        </Head>
         <body>
           <Main />
           <NextScript />

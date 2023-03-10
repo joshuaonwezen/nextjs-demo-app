@@ -12,7 +12,7 @@ describe('Main template', () => {
       expect(menuItemList).toHaveLength(4);
     });
 
-    it('should have a link to support creativedesignsguru.com', () => {
+    it('should have a link to github page', () => {
       render(<Main meta={null}>{null}</Main>);
 
       const copyrightSection = screen.getByText(/© Copyright/);
@@ -26,7 +26,7 @@ describe('Main template', () => {
        */
       expect(copyrightLink).toHaveAttribute(
         'href',
-        'https://creativedesignsguru.com'
+        'https://github.com/joshuaonwezen/'
       );
     });
   });

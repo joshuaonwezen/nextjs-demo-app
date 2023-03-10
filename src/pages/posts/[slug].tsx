@@ -1,3 +1,4 @@
+import { useDecision } from '@optimizely/react-sdk';
 import type {
   GetStaticPaths,
   GetStaticProps,
@@ -14,7 +15,7 @@ type IBlogUrl = {
 export const getStaticPaths: GetStaticPaths<IBlogUrl> = async () => {
   return {
     paths: [...Array(10)].map((_, index) => ({
-      params: { slug: `blog-${index}` },
+      params: { slug: `post-${index}` },
     })),
     fallback: false,
   };
@@ -31,15 +32,20 @@ export const getStaticProps: GetStaticProps<IBlogUrl, IBlogUrl> = async ({
 };
 
 const Blog = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const [decision] = useDecision('a_a_test');
   return (
     <Main meta={<Meta title={props.slug} description="Lorem ipsum" />}>
       <h1 className="capitalize">{props.slug}</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eos
-        earum doloribus, quibusdam magni accusamus vitae! Nisi, sunt! Aliquam
-        iste expedita cupiditate a quidem culpa eligendi, aperiam saepe dolores
-        ipsum!
-      </p>
+      {decision.enabled ? (
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore eos
+          earum doloribus, quibusdam magni accusamus vitae! Nisi, sunt! Aliquam
+          iste expedita cupiditate a quidem culpa eligendi, aperiam saepe
+          dolores ipsum!
+        </p>
+      ) : (
+        <p>This Optimizely flag has been disabled</p>
+      )}
     </Main>
   );
 };
